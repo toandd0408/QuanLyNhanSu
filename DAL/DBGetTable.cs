@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace DAL
 {
-    class DBGetTable
+    public class DBGetTable
     {
         public static bool fail = false;
         public static string failedStringCommand = "";
