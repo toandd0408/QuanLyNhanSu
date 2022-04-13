@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using DAL;
 
 namespace NhanVien
 {
@@ -19,16 +21,23 @@ namespace NhanVien
         }  
         public void GetinfoPartTime()
         {
-            Console.WriteLine("SSN: " + this.ssn);
-            Console.WriteLine("firstName: " + this.firstName);
-            Console.WriteLine("lastName " + this.lastName);
-            Console.WriteLine("birthDate " + this.birthDate);
-            Console.WriteLine("phone " + this.phone);
-            Console.WriteLine("email " + this.email);
-            Console.WriteLine("department " + this.department);
-            Console.WriteLine("commissionRate " + this.rate);
-            Console.WriteLine("grossSales " + this.workingHours);
-            Console.WriteLine("luong " + this.Salary);
+            GetInfor();
+            Console.WriteLine("Rate: " + this.rate);
+            Console.WriteLine("WorkingHours: " + this.workingHours);
+            Console.WriteLine("luong: " + this.Salary);
+        }
+        public void InputSalaryPartTime(string SSN)
+        {
+            DataTable dt1 = GetData.GetSalaryPartTimeFromSSN(SSN);
+            DataRow dt1Row = dt1.Rows[0];
+            rate = (int)dt1Row["rate"];
+            workingHours = (int)dt1Row["workingHours"];           
+            Salary = rate * workingHours;
+
+        }
+        public EplPartTime()
+        {
+
         }
     }
 }
